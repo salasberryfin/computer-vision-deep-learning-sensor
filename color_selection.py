@@ -12,9 +12,9 @@ xsize = image.shape[1]
 color_select = np.copy(image)
 
 # detect clear colors
-red_threshold = 205
-green_threshold = 205
-blue_threshold = 205
+red_threshold = 200
+green_threshold = 200
+blue_threshold = 200
 
 rgb_threshold = [red_threshold, green_threshold, blue_threshold ]
 
