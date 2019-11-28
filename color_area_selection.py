@@ -47,6 +47,8 @@ color_select[color_thresholds & ~area_thresholds] = [0, 0, 0]
 line_image[~color_thresholds & area_thresholds] = [255, 0, 0]
 
 plt.imshow(line_image)
+plt.show()
 plt.savefig("line-image.jpg")
 plt.imshow(color_select)
+plt.show()
 plt.savefig("color-select.jpg")

@@ -30,5 +30,5 @@ thresholds = (YY > (XX*fit_left[0]+fit_left[1])) & \
 area_select[thresholds] = [255, 0, 0]
 
 plt.imshow(area_select)
-# plt.show
+plt.show()
 plt.savefig("output.jpg")

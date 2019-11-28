@@ -26,5 +26,5 @@ thresholds = (image[:,:,0] < rgb_threshold[0]) \
 # paint all those pixels black
 color_select[thresholds] = [0, 0, 0]
 plt.imshow(color_select)
-plt.show
+plt.show()
 plt.savefig("output.jpg")
