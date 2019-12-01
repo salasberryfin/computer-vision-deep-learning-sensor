@@ -5,15 +5,12 @@ import cv2
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-
 images_folder = "./images"
 image_name = "test_image2.png"
 
 nx = 8
 ny = 6
 
-src = np.float32([[258, 3], [341, 909], [1180, 143], [1133, 722]])
-dest = np.float32([[200, 100], [200, 900], [1100, 100], [1100, 900]])
 
 def find_corners(gray, n):
     objpoints = []  # 3D real points
@@ -47,13 +44,19 @@ def calibrate_undistort(imgpoints, objpoints):
 
 def draw_undist_corners(img, n):
     ret, corners = cv2.findChessboardCorners(img, n, None)
+    src = np.float32([corners[0], corners[nx-1], corners[-1], corners[-nx]])
     if ret is True:
         cv2.drawChessboardCorners(img, n, corners, ret)
 
-        return img
+        return img, src
 
 
-def transform_perspective(img):
+def transform_perspective(img, src):
+    offset = 100
+    img_size = (img.shape[1], img.shape[0])
+    dest = np.float32([[offset, offset], [img_size[0]-offset, offset],
+                      [img_size[0]-offset, img_size[1]-offset], 
+                      [offset, img_size[1]-offset]])
     M = cv2.getPerspectiveTransform(src, dest)
     warped = cv2.warpPerspective(img, M, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
 
@@ -66,8 +69,8 @@ if __name__ == '__main__':
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     imgpoints, objpoints = find_corners(gray, (nx, ny))
     dst = calibrate_undistort(imgpoints, objpoints)
-    undist_corners = draw_undist_corners(dst, (nx, ny))
-    warped = transform_perspective(undist_corners)
+    undist_corners, src = draw_undist_corners(dst, (nx, ny))
+    warped = transform_perspective(undist_corners, src)
     plt.imshow(warped)
     plt.show()
 
