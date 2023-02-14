@@ -8,7 +8,7 @@ python-dateutil==2.8.1
 six==1.13.0
 bleach==1.5.0
 cycler==0.10.0
-html5lib==0.9999999
+html5lib==0.999999999
 joblib==1.2.0
 Keras==2.0.9
 kiwisolver==1.1.0
