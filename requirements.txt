@@ -2,7 +2,7 @@ cycler==0.10.0
 kiwisolver==1.1.0
 numpy==1.22.0
 opencv-python==4.2.0.32
-Pillow==10.2.0
+Pillow==10.3.0
 pyparsing==2.4.5
 python-dateutil==2.8.1
 six==1.13.0
@@ -17,7 +17,7 @@ matplotlib==3.1.1+2600.gd41775327.dirty
 numpy==1.22.0
 opencv-python==4.2.0.32
 pandas==0.25.3
-Pillow==10.2.0
+Pillow==10.3.0
 protobuf==3.18.3
 pyparsing==2.4.6
 python-dateutil==2.8.1
