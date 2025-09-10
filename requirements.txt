@@ -10,7 +10,7 @@ bleach==3.3.0
 cycler==0.10.0
 html5lib==0.999999999
 joblib==1.2.0
-Keras==2.13.1
+Keras==3.9.0
 kiwisolver==1.1.0
 Markdown==3.1.1
 matplotlib==3.1.1+2600.gd41775327.dirty
